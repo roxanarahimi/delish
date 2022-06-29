@@ -18,9 +18,10 @@
       <p class="fw-bold mt-4 mb-0">پیتزا ایتالیایی</p>
       <p>119,000</p>
       <div class="input-group mt-2 px-0 " style="width: 100px;">
-        <i class="bi bi-plus-circle-fill me-2 text-danger" style="font-size: 25px"></i>
-        <input type="text" class="form-control form-control-sm text-center" required value="">
-        <i class="bi bi-dash-circle-fill ms-2 text-danger d-none" style="font-size: 25px"></i>
+
+        <i :id="'increase_'+index" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger" style="font-size: 20px"></i>
+        <input :id="'quantity_'+index" type="text" class="form-control p-0 form-control-sm text-center" required value="">
+        <i :id="'decrease_'+index" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger" style="font-size: 20px"></i>
 
       </div>
     </div>
@@ -28,8 +29,40 @@
 </template>
 
 <script>
+import {onMounted, ref} from "vue";
+
 export default {
-  name: "FoodCard"
+  name: "FoodCard",
+  props: ['index'],
+  setup(props){
+    const decreaseBtn = ref(false);
+    const increaseQ = ()=>{
+
+      if (document.querySelector('#quantity_'+props.index).value === '' ){
+        document.querySelector('#quantity_'+props.index).value = 1;
+        decreaseBtn.value = true;
+      }else{
+        document.querySelector('#quantity_'+props.index).value = parseInt(document.querySelector('#quantity_'+props.index).value) + 1;
+
+      }
+    }
+    const decreaseQ = ()=>{
+      if(document.querySelector('#quantity_'+props.index).value >0) {
+        document.querySelector('#quantity_'+props.index).value = parseInt(document.querySelector('#quantity_'+props.index).value) - 1;
+        if (parseInt(document.querySelector('#quantity_'+props.index).value) === 0){
+          document.querySelector('#quantity_'+props.index).value = '';
+          decreaseBtn.value = false;
+        }
+      }
+
+    }
+
+    return{
+      decreaseBtn,
+      increaseQ,
+      decreaseQ
+    }
+  }
 }
 </script>
 
@@ -38,117 +71,24 @@ export default {
   /*background-color: rgba(240, 128, 128, 0.6);*/
   box-shadow: 0 1px 1px lightgrey;
   border: none;
-  border-radius: 50% 50% 20px 210px;
+  border-radius: 46% 46% 20px 210px;
 }
 
 .card img {
-  border-radius:   250px 250px 0  0px;
-  margin: -10px 0px 0 0;
+  border-radius: 250px 250px 0 0px;
+  margin: -2px 0px 0 0;
 
 
 }
 
-/*@media (min-width: 1501px ) {*/
-/*  .card img {*/
-
-/*    margin: -40px 160px 0 0;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 1500px ) {*/
-/*  .card img {*/
-
-/*    margin: -40px 140px 0 0;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 1400px ) {*/
-/*  .card img {*/
-
-/*    margin: -40px 250px 0 0;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 1300px ) {*/
-/*  .card img {*/
-
-/*    margin: -40px 220px 0 0;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 1200px ) {*/
-/*  .card img {*/
-
-/*    margin: -40px 360px 0 0;*/
-/*    width: 100px;*/
-/*    height: 100px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 1024px ) {*/
-/*  .card img {*/
-
-/*    margin: -40px 240px 0 0;*/
-/*    width: 130px;*/
-/*    height: 130px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 900px ) {*/
-/*  .card img {*/
-/*    margin: -40px 190px 0 0;*/
-/*    width: 150px;*/
-/*    height: 150px;*/
-/*  }*/
-/*}*/
-/*@media (max-width: 800px ) {*/
-/*  .card img {*/
-/*    margin: -40px 150px 0 0;*/
-/*    width: 150px;*/
-/*    height: 150px;*/
-/*  }*/
-/*}*/
-/*@media (max-width: 726px ) {*/
-/*  .card img {*/
-/*    margin: -40px 150px 0 0;*/
-/*    width: 150px;*/
-/*    height: 150px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 500px ) {*/
-/*  .card img {*/
-/*    margin: -40px 150px 0 0;*/
-/*    width: 150px;*/
-/*    height: 150px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 450px ) {*/
-/*  .card img {*/
-/*    margin: -40px 110px 0 0;*/
-/*    width: 130px;*/
-/*    height: 130px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 400px ) {*/
-/*  .card img {*/
-/*    margin: -40px 105px 0 0;*/
-/*    width: 120px;*/
-/*    height: 120px;*/
-/*  }*/
-/*}*/
-
-input {
+.input-group > .form-control, .input-group > .form-select {
+  position: relative;
+  flex: 0 1 !important;
+  min-width: 20px !important;
   border: none;
 }
+.bi{
+  cursor: pointer;
+}
+
 </style>

@@ -40,100 +40,62 @@
 
 
           <!--          cards-->
-          <div class="col-10 col-md-6 col-lg-6 col-xl-8 col-xxl-9 px-2">
-            <div id="pizza"    style="padding-top: 120px" class="row  ">
+          <div class="col-12 col-md-6 col-lg-6 col-xl-8 col-xxl-9 px-2">
+            <div id="pizza" style="padding-top: 120px" class="row  ">
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="1"/>
+
+                </div>
+              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
+                <food-card  index="2" />
               </div>
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card  index="10" />
               </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
+
             </div>
-            <div id="burger"   style="padding-top: 120px" class="row  ">
+            <div id="burger" style="padding-top: 120px" class="row  ">
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="3"/>
               </div>
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="4"/>
               </div>
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="5"/>
               </div>
             </div>
             <div id="sandwich" style="padding-top: 120px" class="row  ">
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="6"/>
               </div>
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="7"/>
               </div>
               <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
+                <food-card index="8"/>
               </div>
             </div>
-            <div id="pasta"    style="padding-top: 120px" class="row  ">
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
+            <div id="pasta" style="padding-top: 120px" class="row  ">
+
             </div>
-            <div id="side"     style="padding-top: 120px" class="row  ">
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
+            <div id="side" style="padding-top: 120px" class="row  ">
+
             </div>
-            <div id="salad"    style="padding-top: 120px" class="row  ">
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
+            <div id="salad" style="padding-top: 120px" class="row  ">
+
             </div>
-            <div id="drink"    style="padding-top: 120px" class="row  ">
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
+            <div id="drink" style="padding-top: 120px" class="row  ">
+
             </div>
-            <div id="other"    style="padding-top: 120px" class="row  ">
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
-              <div class="col-12 col-xl-6  col-xxl-4 mb-3">
-                <food-card/>
-              </div>
+            <div id="other" style="padding-top: 120px" class="row  ">
+
             </div>
 
           </div>
           <!--          cards-->
           <!--        factor-->
-          <div id="factor" class="col-10 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-3 mt-3  ">
+          <div id="factor" class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-3 mb-3 mt-3  ">
             <div class="card" style="min-height :167px; border-radius: 20px ; margin-top: 100px;">
               <div class="card-body px-2 py-3">
                 <table class="table table-borderless m-0" style="border-radius: 20px">
@@ -215,17 +177,23 @@ import FoodCard from "@/components/FoodCard";
 
 export default {
   name: "Foods",
-  components: {FoodCard}
+  components: {FoodCard},
+  setup(){
+    return{
+    }
+  }
 }
 </script>
 
 <style scoped>
-#sideNav{
+#sideNav {
   width: 140px;
 }
-#content{
+
+#content {
   width: calc(100% - 140px);
 }
+
 .card {
   box-shadow: 0 1px 1px dimgray;
   border: none;
@@ -235,6 +203,7 @@ table {
   overflow: hidden;
 
 }
+
 /*@media(min-width: 770px){*/
 /*  #factor{*/
 /*    position: sticky !important;*/
