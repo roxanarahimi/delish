@@ -7,11 +7,11 @@
           <a class="btn btn-lg btn-danger p-3" style="border-radius:  0 80px  80px 0"><i
               class="bi bi-caret-right-fill"></i></a>
           <!--                             <router-link  to="/login" class="btn btn-lg btn-danger p-3">ورود</router-link>-->
-          <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-three-dots-vertical"></i></router-link>
+<!--          <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-three-dots-vertical"></i></router-link>-->
           <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-grid-fill"></i></router-link>
           <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-person-fill"></i></router-link>
           <router-link to="/login" class="btn btn-lg btn-danger p-3"><i class="bi bi-shield-lock-fill"></i></router-link>
-          <a  class="btn btn-lg btn-danger p-3"><i class="bi bi-cart-fill"></i></a>
+          <a  class="btn btn-lg btn-danger p-3"><i class="bi bi-basket2-fill"></i></a>
           <a class="btn btn-lg btn-danger p-3" style="border-radius: 80px  0 0 80px"><i
               class="bi bi-caret-left-fill"></i></a>
         </div>
