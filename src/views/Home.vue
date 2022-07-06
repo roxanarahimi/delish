@@ -25,7 +25,7 @@
         </div>
 
         <div>
-          <router-link to="/login" class="btn btn-lg btn-danger px-5" style="border-radius:30px">عضویت / ورود
+          <router-link to="/login" class="btn btn-lg btn-danger px-5" style="border-radius:30px">ورود
           </router-link>
         </div>
       </div>

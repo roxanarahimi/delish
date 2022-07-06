@@ -7,16 +7,19 @@
           <a class="btn btn-lg btn-danger p-3" style="border-radius:  0 80px  80px 0"><i
               class="bi bi-caret-right-fill"></i></a>
           <!--                             <router-link  to="/login" class="btn btn-lg btn-danger p-3">ورود</router-link>-->
-<!--          <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-three-dots-vertical"></i></router-link>-->
+          <!--          <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-three-dots-vertical"></i></router-link>-->
+          <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-house-fill"></i></router-link>
           <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-grid-fill"></i></router-link>
           <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-person-fill"></i></router-link>
-          <router-link to="/login" class="btn btn-lg btn-danger p-3"><i class="bi bi-shield-lock-fill"></i></router-link>
-          <a  class="d-xl-none btn btn-lg btn-danger p-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><i class="bi bi-basket2-fill"></i></a>
+          <router-link to="/login" class="btn btn-lg btn-danger p-3"><i class="bi bi-shield-lock-fill"></i>
+          </router-link>
+          <a class="d-xl-none btn btn-lg btn-danger p-3" type="button" data-bs-toggle="offcanvas"
+             data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><i class="bi bi-basket2-fill"></i></a>
           <a class="btn btn-lg btn-danger p-3" style="border-radius: 80px  0 0 80px"><i
               class="bi bi-caret-left-fill"></i></a>
         </div>
       </div>
-<!--      offCanvas-->
+      <!--      offCanvas-->
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
           <button type="button" class=" btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -59,7 +62,7 @@
                         class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
                   </tr>
                   <tr class="border-none">
-                    <th  class="border-none">
+                    <th class="border-none">
                       <p class="fw-bold  mb-1">تخفیف</p>
                       <p class="fw-bold mb-1">جمع کل</p>
 
@@ -86,7 +89,7 @@
 
         </div>
       </div>
-<!--      offCanvas-->
+      <!--      offCanvas-->
       <!--      top nav -->
       <div class="d-flex justify-content-center mt-5">
 
@@ -96,14 +99,14 @@
           <nav class="" style="position: fixed">
             <div class="btn-group-vertical">
               <a href="#pizza" class="btn btn-danger px-3 pt-4 " style="border-radius: 80px 80px 0 0"
-                 aria-current="page">پیتزا</a>
-              <a href="#burger" class="btn btn-lg btn-danger px-3">برگر</a>
+                 aria-current="page">پیتــــزا</a>
+              <a href="#burger" class="btn btn-lg btn-danger px-3">برگـــر</a>
               <a href="#sandwich" class="btn btn-lg btn-danger px-3">ساندویچ</a>
-              <a href="#pasta" class="btn btn-lg btn-danger px-3">پاستا</a>
+              <a href="#pasta" class="btn btn-lg btn-danger px-3">پاســتا</a>
               <a href="#side" class="btn btn-lg btn-danger px-3">پیش غذا</a>
-              <a href="#salad" class="btn btn-lg btn-danger px-3">سالاد</a>
+              <a href="#salad" class="btn btn-lg btn-danger px-3">ســالاد</a>
               <a href="#drink" class="btn btn-lg btn-danger px-3">نوشیدنی</a>
-              <a href="#other" class="btn btn-lg btn-danger px-3 pb-4" style="border-radius: 0 0 80px 80px">سایر</a>
+              <a href="#other" class="btn btn-lg btn-danger px-3 pb-4" style="border-radius: 0 0 80px 80px">ســایر</a>
             </div>
           </nav>
         </div>
@@ -118,15 +121,15 @@
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="1"/>
 
-                </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card  index="2" />
               </div>
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card  index="10" />
+                <food-card index="2"/>
               </div>
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card  index="10" />
+                <food-card index="10"/>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card index="10"/>
               </div>
             </div>
             <div id="burger" style="padding-top: 85px" class="row  ">
@@ -177,10 +180,10 @@
             <div class="card" style="min-height :167px;  margin-top: 85px;">
               <div class="card-body px-2 py-3">
                 <table class="table  m-0" style="border-radius: 20px">
-<!--                  <thead class="">-->
-<!--                  <th>عنوان</th>-->
-<!--                  <th style="width: 80px">تعداد</th>-->
-<!--                  </thead>-->
+                  <!--                  <thead class="">-->
+                  <!--                  <th>عنوان</th>-->
+                  <!--                  <th style="width: 80px">تعداد</th>-->
+                  <!--                  </thead>-->
                   <tbody class=" ">
                   <tr>
                     <td>
@@ -207,7 +210,7 @@
                         class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
                   </tr>
                   <tr class="border-none">
-                    <th  class="border-none">
+                    <th class="border-none">
                       <p class="fw-bold  mb-1">تخفیف</p>
                       <p class="fw-bold mb-1">جمع کل</p>
 
@@ -221,10 +224,10 @@
                   </tr>
                   </tbody>
                 </table>
-<div>
-  <button class="btn btn-block  w-100 btn-danger">ثبت نهایی</button>
+                <div>
+                  <button class="btn btn-block  w-100 btn-danger">ثبت نهایی</button>
 
-</div>
+                </div>
 
               </div>
             </div>
@@ -240,14 +243,13 @@
 
 <script>
 import FoodCard from "@/components/FoodCard";
-import Menu from "@/components/TheMenu";
+// import Menu from "@/components/TheMenu";
 
 export default {
   name: "Foods",
   components: {FoodCard},
-  setup(){
-    return{
-    }
+  setup() {
+    return {}
   }
 }
 </script>

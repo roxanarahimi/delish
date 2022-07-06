@@ -2,6 +2,25 @@ main{
     max-width: 1200px;
     margin: 0px auto;
 }
+.en {
+    /*font-family: "Montserrat SemiBold" !important;*/
+    direction: ltr;
+    text-align: left;
+}
+.error {
+    color: lightcoral;
+}
+
+.hasError {
+    border: 1.2px solid lightcoral !important;
+    box-shadow: none !important;
+}
+
+.valid {
+    border: 1.5px solid #42b983 !important;
+    box-shadow: none !important;
+}
+
 body{
     /*background-color: #ffdf6d;*/
 
