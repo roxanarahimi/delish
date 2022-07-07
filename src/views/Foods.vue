@@ -1,6 +1,6 @@
 <template>
   <!--      top nav -->
-  <div class="w-100 pt-4 pb-4  d-flex justify-content-center"
+  <div id="topMeu" class="w-100 pt-4 pb-4  d-flex justify-content-center"
        style="position: fixed; z-index: 100; background-color: white !important ;">
     <div class="btn-group  " style="">
       <a class="btn btn-lg btn-danger p-3" style="border-radius:  0 80px  80px 0"><i
@@ -27,7 +27,7 @@
     <div class="offcanvas-body">
 
       <!--        factor-->
-      <div id="factor1" class="d-xl-none  ">
+      <div id="factor1" class="">
         <div class="card" style="min-height :167px;  margin-top: 0px;">
           <div class="card-body px-2 py-3">
             <div>
@@ -106,15 +106,14 @@
         <div id="sideNav" class="col-3 col-md-2 d-flex justify-content-start" style="">
           <nav class="" style="position: fixed">
             <div class="btn-group-vertical">
-              <a href="#pizza" class="btn btn-danger px-3 pt-4 " style="border-radius: 80px 80px 0 0"
-                 aria-current="page">پیتــــزا</a>
-              <a href="#burger" class="btn btn-lg btn-danger px-3">برگـــر</a>
-              <a href="#sandwich" class="btn btn-lg btn-danger px-3">ساندویچ</a>
-              <a href="#pasta" class="btn btn-lg btn-danger px-3">پاســتا</a>
-              <a href="#side" class="btn btn-lg btn-danger px-3">پیش غذا</a>
-              <a href="#salad" class="btn btn-lg btn-danger px-3">ســالاد</a>
-              <a href="#drink" class="btn btn-lg btn-danger px-3">نوشیدنی</a>
-              <a href="#other" class="btn btn-lg btn-danger px-3 pb-4" style="border-radius: 0 0 80px 80px">ســایر</a>
+              <a     @click="scrollPage('pizza')" class="btn btn-danger          px-2 px-sm-3 pt-4 " style="border-radius: 80px 80px 0 0" aria-current="page">پیتــــزا</a>
+              <a    @click="scrollPage('burger')" class="btn btn-lg btn-danger   px-2 px-sm-3">برگـــر</a>
+              <a  @click="scrollPage('sandwich')" class="btn btn-lg btn-danger   px-2 px-sm-3">ساندویچ</a>
+              <a     @click="scrollPage('pasta')" class="btn btn-lg btn-danger   px-2 px-sm-3">پاســتا</a>
+              <a      @click="scrollPage('side')" class="btn btn-lg btn-danger   px-2 px-sm-3">پیش غذا</a>
+              <a     @click="scrollPage('salad')" class="btn btn-lg btn-danger   px-2 px-sm-3">ســالاد</a>
+              <a     @click="scrollPage('drink')" class="btn btn-lg btn-danger   px-2 px-sm-3">نوشیدنی</a>
+              <a     @click="scrollPage('other')" class="btn btn-lg btn-danger   px-2 px-sm-3 pb-4" style="border-radius: 0 0 80px 80px">ســایر</a>
             </div>
           </nav>
         </div>
@@ -125,7 +124,7 @@
 
           <!--          cards-->
           <div class="col-12 col-xl-8 px-md-3">
-            <div id="pizza" style="" class="row  ">
+            <div id="pizza" style="scroll-margin-top: 112px" class="row">
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="1"/>
               </div>
@@ -139,7 +138,7 @@
                 <food-card index="11"/>
               </div>
             </div>
-            <div id="burger" style="" class="row  ">
+            <div id="burger" style="scroll-margin-top: 112px" class="row  ">
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="11"/>
@@ -160,7 +159,7 @@
                 <food-card index="7"/>
               </div>
             </div>
-            <div id="sandwich" style="" class="row  ">
+            <div id="sandwich" style="scroll-margin-top: 112px" class="row  ">
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="12"/>
@@ -172,7 +171,7 @@
                 <food-card index="14"/>
               </div>
             </div>
-            <div id="pasta" style="" class="row  ">
+            <div id="pasta" style="scroll-margin-top: 112px" class="row  ">
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="15"/>
@@ -181,14 +180,14 @@
                 <food-card index="16"/>
               </div>
             </div>
-            <div id="side" style="" class="row  ">
+            <div id="side" style="scroll-margin-top: 112px" class="row  ">
 
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="17"/>
               </div>
             </div>
-            <div id="salad" style="" class="row  ">
+            <div id="salad" style="scroll-margin-top: 112px" class="row  ">
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="18"/>
@@ -197,7 +196,7 @@
                 <food-card index="19"/>
               </div>
             </div>
-            <div id="drink" style="" class="row  ">
+            <div id="drink" style="scroll-margin-top: 112px" class="row  ">
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="20"/>
@@ -215,7 +214,7 @@
                 <food-card index="24"/>
               </div>
             </div>
-            <div id="other" style="" class="row  ">
+            <div id="other" style="scroll-margin-top: 112px" class="row  ">
 
               <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <food-card index="25"/>
@@ -310,7 +309,17 @@ export default {
   name: "Foods",
   components: {FoodCard},
   setup() {
-    return {}
+    const scrollPage = (id)=>{
+      let element = document.querySelector('#'+id);
+      console.log(element.top)
+      document.querySelector('main').scrollTo(element);
+
+      // element.scrollMarginTop = document.querySelector('#topMeu').height;
+      document.querySelector('#' + id).scrollIntoView();
+    }
+    return {
+      scrollPage
+    }
   }
 }
 </script>
