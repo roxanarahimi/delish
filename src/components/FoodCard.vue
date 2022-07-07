@@ -29,18 +29,18 @@
 
     </div>
     <div class="m-2">
-    <div class="input-group mt-2 px-0 " style="width: 100px;">
+      <div class="input-group mt-2 px-0 " style="width: 100px;">
 
-      <i :id="'increase_'+index" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger"
-         style="font-size: 20px"></i>
-      <input :id="'quantity_'+index" type="text" class="form-control p-0 form-control-sm text-center" required
-             value="">
-      <i :id="'decrease_'+index" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger"
-         style="font-size: 20px"></i>
+        <i :id="'increase_'+index" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger"
+           style="font-size: 20px"></i>
+        <input :id="'quantity_'+index" type="text" class="form-control p-0 form-control-sm text-center" required
+               value="">
+        <i :id="'decrease_'+index" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger"
+           style="font-size: 20px"></i>
+
+      </div>
 
     </div>
-
-  </div>
   </div>
 </template>
 
@@ -114,7 +114,7 @@ export default {
   color: white;
   background: rgba(0, 0, 0, 0.3);
   color: black;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.7);
 
   position: absolute;
   top: 0;

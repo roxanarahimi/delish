@@ -1,6 +1,6 @@
 main{
     max-width: 1200px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 .en {
     /*font-family: "Montserrat SemiBold" !important;*/
@@ -20,6 +20,7 @@ main{
     border: 1.5px solid #42b983 !important;
     box-shadow: none !important;
 }
+
 
 body{
     /*background-color: #ffdf6d;*/
