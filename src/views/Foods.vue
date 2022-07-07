@@ -125,105 +125,43 @@
           <!--          cards-->
           <div class="col-12 col-xl-8 px-md-3">
             <div id="pizza" style="scroll-margin-top: 112px" class="row">
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="1"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="2"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="10"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="11"/>
+              <div v-for="data in foods['pizza']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="burger" style="scroll-margin-top: 112px" class="row  ">
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="11"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="3"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="4"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="5"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="6"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="7"/>
+              <div v-for="data in foods['burger']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="sandwich" style="scroll-margin-top: 112px" class="row  ">
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="12"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="13"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="14"/>
+              <div v-for="data in foods['sandwich']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="pasta" style="scroll-margin-top: 112px" class="row  ">
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="15"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="16"/>
+              <div v-for="data in foods['pasta']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="side" style="scroll-margin-top: 112px" class="row  ">
-
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="17"/>
+              <div v-for="data in foods['side']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="salad" style="scroll-margin-top: 112px" class="row  ">
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="18"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="19"/>
+              <div v-for="data in foods['salad']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="drink" style="scroll-margin-top: 112px" class="row  ">
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="20"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="21"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="22"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="23"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="24"/>
+              <div v-for="data in foods['drink']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
             <div id="other" style="scroll-margin-top: 112px" class="row  ">
-
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="25"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="26"/>
-              </div>
-              <div class="col-12 col-md-6 col-lg-4  col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <food-card index="27"/>
+              <div v-for="data in foods['other']" :key="data.id" class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
+                <food-card :index="data.id" :title="data.title" :image="data.image" :parts="data.parts" :price="data.price" :off="data.off"/>
               </div>
             </div>
 
@@ -303,6 +241,7 @@
 
 <script>
 import FoodCard from "@/components/FoodCard";
+import {onMounted, ref} from "vue";
 // import Menu from "@/components/TheMenu";
 
 export default {
@@ -311,14 +250,21 @@ export default {
   setup() {
     const scrollPage = (id)=>{
       let element = document.querySelector('#'+id);
-      console.log(element.top)
       document.querySelector('main').scrollTo(element);
-
-      // element.scrollMarginTop = document.querySelector('#topMeu').height;
       document.querySelector('#' + id).scrollIntoView();
     }
+    const foods = ref({});
+    axios.get('https://panel.webagent.ir/api/foods')
+        .then((response)=>{
+          foods.value = response.data;
+          console.log(foods.value['pizza'])
+          console.log(foods.value['burger'])
+
+
+        });
+
     return {
-      scrollPage
+      scrollPage, foods
     }
   }
 }

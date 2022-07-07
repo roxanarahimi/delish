@@ -1,31 +1,23 @@
 <template>
   <div class="card food-card m-0 ">
     <div>
-      <img class="img-fluid m-1" src="../assets/p.jpg" alt="">
-      <h4 style="position: absolute; top: 5px; left:5px"><span class="badge bg-danger">5%</span>
+      <img class="img-fluid m-1" :src="'./img/foods/'+image" alt="">
+      <h4 v-if="off" style="position: absolute; top: 5px; left:5px"><span class="badge bg-danger">{{ off }}%</span>
       </h4>
       <div class="px-3 pt-5" id="info-wrapper" style="">
         <div id="info" class="mt-3">
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i>سوسیس</span>
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> ژامبون</span>
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> زیتون</span>
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> پنیر پیتزا</span>
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> ذرت</span>
-
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> پنیر گود</span>
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> پنیر گودا</span>
-          <span class="pe-2"><i class="bi bi-circle-fill" style="font-size: 7px"></i> قارچ</span>
-
+          {{ parts }}
         </div>
       </div>
     </div>
 
 
     <div class="card-body py-1 px-3">
-      <p class="d-inline mb-1 float-start fw-bold mb-0">پیتزا ایتالیایی</p>
-      <p class="d-inline-block mb-1 float-end">119,000</p>
+      <p class="d-inline mb-1 float-start fw-bold mb-0">{{ title}}</p>
+      <p class="d-inline-block mb-1 float-end">{{ price *(1 - off/100) }}</p>
 
-      <p class="d-block w-100 text-end mb-1 float-end  text-muted" style="text-decoration: line-through;">125,000</p>
+      <p v-if="off" class="d-block w-100 text-end mb-1 float-end py-1 text-muted" style="text-decoration: line-through;">{{  price }}</p>
+      <div v-else class="d-block w-100 text-end mb-1 float-end text-muted" style="text-decoration: line-through; height: 32px"> </div>
 
     </div>
     <div class="m-2">
@@ -49,7 +41,7 @@ import {onMounted, ref} from "vue";
 
 export default {
   name: "FoodCard",
-  props: ['index'],
+  props: ['index','title','image', 'parts','price','off'],
   setup(props) {
     const decreaseBtn = ref(false);
     const increaseQ = () => {
