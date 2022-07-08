@@ -1,39 +1,45 @@
 <template>
-  <div class="card food-card m-0 ">
-    <div>
-      <img class="img-fluid m-1" :src="'./img/foods/'+image" alt="">
-      <h4 v-if="off" style="position: absolute; top: 5px; left:5px"><span class="badge bg-danger">{{ off }}%</span>
-      </h4>
-      <div class="px-3 pt-5" id="info-wrapper" style="">
-        <div id="info" class="mt-3">
-          {{ parts }}
+
+    <div class="card food-card m-0 ">
+      <div>
+        <img class="img-fluid m-1" :src="'./img/foods/'+ data.image" alt="">
+        <h4 v-if="data.off" style="position: absolute; top: 5px; left:5px"><span class="badge bg-danger">{{
+            data.off
+          }}%</span>
+        </h4>
+        <div class="px-3 pt-5" id="info-wrapper" style="">
+          <div id="info" class="mt-3">
+            {{ data.parts }}
+          </div>
         </div>
       </div>
-    </div>
 
 
-    <div class="card-body py-1 px-3">
-      <p class="d-inline mb-1 float-start fw-bold mb-0">{{ title}}</p>
-      <p class="d-inline-block mb-1 float-end">{{ price *(1 - off/100) }}</p>
+      <div class="card-body py-1 px-3">
+        <p class="d-inline mb-1 float-start fw-bold mb-0">{{ data.title }}</p>
+        <p class="d-inline-block mb-1 float-end">{{ data.price * (1 - data.off / 100) }}</p>
 
-      <p v-if="off" class="d-block w-100 text-end mb-1 float-end py-1 text-muted" style="text-decoration: line-through;">{{  price }}</p>
-      <div v-else class="d-block w-100 text-end mb-1 float-end text-muted" style="text-decoration: line-through; height: 32px"> </div>
-
-    </div>
-    <div class="m-2">
-      <div class="input-group mt-2 px-0 " style="width: 100px;">
-
-        <i :id="'increase_'+index" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger"
-           style="font-size: 20px"></i>
-        <input :id="'quantity_'+index" type="text" class="form-control p-0 form-control-sm text-center" required
-               value="">
-        <i :id="'decrease_'+index" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger"
-           style="font-size: 20px"></i>
+        <p v-if="data.off" class="d-block w-100 text-end mb-1 float-end py-1 text-muted"
+           style="text-decoration: line-through;">{{ data.price }}</p>
+        <div v-else class="d-block w-100 text-end mb-1 float-end text-muted"
+             style="text-decoration: line-through; height: 32px"></div>
 
       </div>
+      <div class="m-2">
+        <div class="input-group mt-2 px-0 " style="width: 100px;">
 
+          <i :id="'increase_'+index" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger"
+             style="font-size: 20px"></i>
+          <input :id="'quantity_'+index" type="text" class="form-control p-0 form-control-sm text-center" required
+                 value="">
+          <i :id="'decrease_'+index" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger"
+             style="font-size: 20px"></i>
+
+        </div>
+
+      </div>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -41,8 +47,8 @@ import {onMounted, ref} from "vue";
 
 export default {
   name: "FoodCard",
-  props: ['index','title','image', 'parts','price','off'],
-  setup(props) {
+  props: ['index'],
+  async setup(props) {
     const decreaseBtn = ref(false);
     const increaseQ = () => {
 
@@ -64,8 +70,18 @@ export default {
       }
 
     }
+    const data = ref({})
+
+    await axios.get('https://panel.webagent.ir/api/food/' + props.index)
+    // await axios.get('http://127.0.0.1:8000/api/food/' + props.index)
+        .then((response) => {
+          data.value = response.data;
+        }).catch((error) => {
+          console.log(error);
+        });
 
     return {
+      data,
       decreaseBtn,
       increaseQ,
       decreaseQ
