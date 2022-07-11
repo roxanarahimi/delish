@@ -80,7 +80,7 @@
               <p class="fw-bold  col-6">جمع کل</p>
               <p class="fw-bold  col-6">460,000</p>
             </div>
-            <router-link to="/confirm" class="btn btn-block w-100 btn-danger">ثبت نهایی</router-link>
+            <a class="btn btn-block w-100 btn-danger">ثبت نهایی</a>
             <!--                </div>-->
 
           </div>
@@ -97,131 +97,29 @@
   <!--      offCanvas-->
   <!--      top nav -->
   <main style="overflow-x: hidden ;  padding-top: 112px " class="">
-    <div id="foods container-fluid px-0 mx-0">
-
-      <div class="d-flex justify-content-center ">
-
-
-        <!--      side nav -->
-        <div id="sideNav" class="col-3 col-md-2 d-flex justify-content-start" style="">
-          <nav class="" style="position: fixed">
-            <div class="btn-group-vertical">
-              <a @click="scrollPage('pizza')" class="btn btn-danger          px-2 px-sm-3 pt-4 "
-                 style="border-radius: 80px 80px 0 0" aria-current="page">پیتــــزا</a>
-              <a @click="scrollPage('burger')" class="btn btn-lg btn-danger   px-2 px-sm-3">برگـــر</a>
-              <a @click="scrollPage('sandwich')" class="btn btn-lg btn-danger   px-2 px-sm-3">ساندویچ</a>
-              <a @click="scrollPage('pasta')" class="btn btn-lg btn-danger   px-2 px-sm-3">پاســتا</a>
-              <a @click="scrollPage('side')" class="btn btn-lg btn-danger   px-2 px-sm-3">پیش غذا</a>
-              <a @click="scrollPage('salad')" class="btn btn-lg btn-danger   px-2 px-sm-3">ســالاد</a>
-              <a @click="scrollPage('drink')" class="btn btn-lg btn-danger   px-2 px-sm-3">نوشیدنی</a>
-              <a @click="scrollPage('other')" class="btn btn-lg btn-danger   px-2 px-sm-3 pb-4"
-                 style="border-radius: 0 0 80px 80px">ســایر</a>
-            </div>
-          </nav>
-        </div>
-        <!--      side nav -->
-
-
-        <div id="content" class="col-9 col-md-10 row " style="">
+    <div id="container-fluid px-0 mx-0">
+        <div id="" class="row px-3" style="">
 
           <!--          cards-->
-          <div class="col-12 col-xl-8 px-md-3">
-            <div id="pizza" style="scroll-margin-top: 112px" class="row">
-              <div v-for="data in foods['pizza']" :key="data.id"  class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
+          <div class="col-lg-6 ">
+            <div class="map-container mx-auto mb-3">
+              <div class="map-marker-centered"></div>
+              <l-map id="map" class="mx-auto map" style="height: 280px; width: 100%"
+                     @dragend="getCoords($event)" :zoom="zoom" :center="center">
+                <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+                <!--        <l-marker :lat-lng="markerLatLng"></l-marker>-->
+              </l-map>
+            </div>
+              <textarea rows="3" placeholder="نشانی..." class="form-control mb-3"></textarea >
 
-                  <template #default>
-                    <food-card :index="data.id"/>
-                  </template>
-                  <template #fallback>
-                      <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="burger" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['burger']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="sandwich" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['sandwich']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="pasta" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['pasta']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="side" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['side']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="salad" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['salad']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="drink" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['drink']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-            <div id="other" style="scroll-margin-top: 112px" class="row  ">
-              <div v-for="data in foods['other']" :key="data.id"
-                   class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
-                <suspense>
-                  <food-card :index="data.id"/>
-                  <template #fallback>
-                    <food-card-skeleton />
-                  </template>
-                </suspense>
-              </div>
-            </div>
-
+              <button  class=" btn btn-danger float-end mb-3">
+                ویرایش نشانی
+              </button >
           </div>
           <!--          cards-->
           <!--        factor-->
-          <div id="factor" class="d-none d-xl-block row col-4 px-2 mb-3">
-            <div class="card mx-2" style="width: 20%; position: fixed; min-height: 176px">
+          <div id="factor" class="col-lg-6 row px-2 mb-3">
+            <div class="card mx-2 w-100 mb-3" style=" min-height: 200px">
               <div class="card-body px-2 py-3">
                 <div>
                   <span class="float-start h4 ">سبد خرید</span>
@@ -229,7 +127,7 @@
                 </div>
                 <hr class="mt-5">
 
-                <div style="height: 200px; overflow-y: scroll">
+                <div  >
                   <table class="table m-0" style="border-radius: 20px">
                     <!--                  <thead class="">-->
                     <!--                  <th>عنوان</th>-->
@@ -272,21 +170,36 @@
 
                   <p class="fw-bold  col-6">جمع کل</p>
                   <p class="fw-bold  col-6">460,000</p>
-                </div>
-                <router-link to="/confirm" class="btn btn-block w-100 btn-danger">ثبت نهایی</router-link>
-                <!--                </div>-->
 
+
+                </div>
+                <!--                </div>-->
+                <div class="row justify-content-between">
+                  <form id="login"  class=" px-0 col-6">
+
+                    <div class="input-group mb-3 px-2">
+                      <input type="text" class="form-control"  minlength="11" maxlength="11" required placeholder="کد تخفیف">
+                      <button class="btn btn-danger" type="submit"  id="button-addon2">اعمال کد</button>
+
+                    </div>
+                    <small class="d-block error m-2"></small>
+
+                  </form>
+                  <div class="col-3 ">
+                    <a class="btn btn-danger w-100 "> پرداخت </a>
+
+                  </div>
+                </div>
               </div>
             </div>
 
-            <img style="position: fixed;  width: 350px; bottom: 0px" src="../assets/chef1.png" alt="">
+<!--            <img style="position: fixed;  width: 350px; bottom: 0px" src="../assets/chef1.png" alt="">-->
+
 
           </div>
           <!--        factor-->
 
         </div>
-
-      </div>
     </div>
   </main>
 </template>
@@ -295,60 +208,67 @@
 import FoodCard from "@/components/FoodCard";
 import {onMounted, ref} from "vue";
 // import Menu from "@/components/TheMenu";
-import foodCardSkeleton from "@/components/FoodCardSkeleton";
-export default {
-  name: "Foods",
-  components: {FoodCard, foodCardSkeleton},
-  setup() {
-    const scrollPage = (id) => {
-      let element = document.querySelector('#' + id);
-      document.querySelector('main').scrollTo(element);
-      document.querySelector('#' + id).scrollIntoView();
-    }
-    const foods = ref({});
-    axios.get('https://panel.webagent.ir/api/foods')
-        // await axios.get('http://127.0.0.1:8000/api/foods')
-        .then((response) => {
-          foods.value = response.data;
-        });
+import 'leaflet/dist/leaflet.css';
+import {LMap, LTileLayer, LMarker, LGeoJson,} from "@vue-leaflet/vue-leaflet";
 
+export default {
+  name: 'ConfirmOrder',
+  components: {
+    LGeoJson,
+    LMap,
+    LTileLayer,
+    LMarker,
+
+  },
+  data() {
     return {
-      scrollPage, foods
-    }
-  }
+      flag: 0,
+      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      attribution:
+          '&copy; <a target="_blank" href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+      zoom: 15,
+      center: [35.7049839, 51.4751094],
+      // markerLatLng: [35.705523, 51.473405],
+
+
+    };
+  },
+  methods: {
+    getCoords(e) {
+      console.log(e.target.getCenter())
+    }}
+
 }
 </script>
 
 <style scoped>
-#sideNav {
-  /*margin-top: 5px;*/
-  width: 110px;
-}
-
-#content {
-  width: calc(100% - 110px);
-}
 
 .card {
   /*box-shadow: 0 1px 1px dimgray;*/
   /*border: none;*/
 }
 
-table {
-  overflow: hidden;
+
+.map {
+  height: 280px;
+  z-index: 1;
+  margin: 0 auto;
 
 }
 
-/*@media(min-width: 770px){*/
-/*  #factor{*/
-/*    position: sticky !important;*/
-/*    top: 100px;*/
-/*    left: 0px;*/
-/*  }*/
-/*}*/
+.map-container {
+  position: relative;
 
-/*.table>:not(caption)>*>* {*/
-/*  border-bottom-width: 0px;*/
-/*}*/
+}
 
+.map-marker-centered {
+  background-image: url("https://img.icons8.com/color/48/000000/marker--v1.png");
+  width: 50px;
+  height: 48px;
+  position: absolute;
+  z-index: 2;
+  left: calc(50% - 25px);
+  top: calc(50% - 22px);
+  transition: all 0.4s ease;
+}
 </style>
