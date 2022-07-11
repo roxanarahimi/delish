@@ -7,9 +7,9 @@
           class="bi bi-caret-right-fill"></i></a>
       <!--                             <router-link  to="/login" class="btn btn-lg btn-danger p-3">ورود</router-link>-->
       <!--          <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-three-dots-vertical"></i></router-link>-->
-      <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-house-fill"></i></router-link>
+      <router-link to="/" class="btn btn-lg btn-danger p-3"><i class="bi bi-house-fill"></i></router-link>
       <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-grid-fill"></i></router-link>
-      <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-person-fill"></i></router-link>
+      <router-link to="/profile" class="btn btn-lg btn-danger p-3"><i class="bi bi-person-fill"></i></router-link>
       <router-link to="/login" class="btn btn-lg btn-danger p-3"><i class="bi bi-shield-lock-fill"></i>
       </router-link>
       <a class="d-xl-none btn btn-lg btn-danger p-3" type="button" data-bs-toggle="offcanvas"

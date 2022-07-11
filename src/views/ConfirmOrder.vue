@@ -7,9 +7,9 @@
           class="bi bi-caret-right-fill"></i></a>
       <!--                             <router-link  to="/login" class="btn btn-lg btn-danger p-3">ورود</router-link>-->
       <!--          <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-three-dots-vertical"></i></router-link>-->
-      <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-house-fill"></i></router-link>
+      <router-link to="/" class="btn btn-lg btn-danger p-3"><i class="bi bi-house-fill"></i></router-link>
       <router-link to="/foods" class="btn btn-lg btn-danger p-3"><i class="bi bi-grid-fill"></i></router-link>
-      <router-link to="/orders" class="btn btn-lg btn-danger p-3"><i class="bi bi-person-fill"></i></router-link>
+      <router-link to="/profile" class="btn btn-lg btn-danger p-3"><i class="bi bi-person-fill"></i></router-link>
       <router-link to="/login" class="btn btn-lg btn-danger p-3"><i class="bi bi-shield-lock-fill"></i>
       </router-link>
       <a class="d-xl-none btn btn-lg btn-danger p-3" type="button" data-bs-toggle="offcanvas"
@@ -96,11 +96,12 @@
   </div>
   <!--      offCanvas-->
   <!--      top nav -->
+
   <main style="overflow-x: hidden ;  padding-top: 112px " class="">
     <div id="container-fluid px-0 mx-0">
         <div id="" class="row px-3" style="">
 
-          <!--          cards-->
+          <!--          map-->
           <div class="col-lg-6 ">
             <div class="map-container mx-auto mb-3">
               <div class="map-marker-centered"></div>
@@ -116,7 +117,7 @@
                 ویرایش نشانی
               </button >
           </div>
-          <!--          cards-->
+          <!--          map-->
           <!--        factor-->
           <div id="factor" class="col-lg-6 row px-2 mb-3">
             <div class="card mx-2 w-100 mb-3" style=" min-height: 200px">
@@ -205,9 +206,6 @@
 </template>
 
 <script>
-import FoodCard from "@/components/FoodCard";
-import {onMounted, ref} from "vue";
-// import Menu from "@/components/TheMenu";
 import 'leaflet/dist/leaflet.css';
 import {LMap, LTileLayer, LMarker, LGeoJson,} from "@vue-leaflet/vue-leaflet";
 

@@ -2,7 +2,6 @@
   <div id="home">
     <div id="parallax">
       <div class="d-flex justify-content-between p-3">
-
         <div class="justify-content-start text-start" style="width: 260px">
 
 
