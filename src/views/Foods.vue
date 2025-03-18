@@ -131,7 +131,7 @@
                 <suspense>
 
                   <template #default>
-                    <food-card :data="data"/>
+                    <food-card :food="data"/>
                   </template>
                   <template #fallback>
                       <food-card-skeleton />
@@ -143,7 +143,7 @@
               <div v-for="data in foods['burger']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -154,7 +154,7 @@
               <div v-for="data in foods['sandwich']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -165,7 +165,7 @@
               <div v-for="data in foods['pasta']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -176,7 +176,7 @@
               <div v-for="data in foods['side']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -187,7 +187,7 @@
               <div v-for="data in foods['salad']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -198,7 +198,7 @@
               <div v-for="data in foods['drink']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -209,7 +209,7 @@
               <div v-for="data in foods['other']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :data="data"/>
+                  <food-card :food="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>

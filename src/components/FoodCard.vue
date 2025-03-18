@@ -26,11 +26,11 @@
       <div class="m-2">
         <div class="input-group mt-2 px-0 " style="width: 100px;">
 
-          <i :id="'increase_'+index" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger"
+          <i :id="'increase_'+data.id" @click="increaseQ" class="bi bi-plus-circle-fill me-1 text-danger"
              style="font-size: 20px"></i>
-          <input :id="'quantity_'+index" type="text" class="form-control p-0 form-control-sm text-center" required
+          <input :id="'quantity_'+data.id" type="text" class="form-control p-0 form-control-sm text-center" required
                  value="">
-          <i :id="'decrease_'+index" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger"
+          <i :id="'decrease_'+data.id" @click="decreaseQ" v-if="decreaseBtn" class="bi bi-dash-circle-fill ms-1 text-danger"
              style="font-size: 20px"></i>
 
         </div>
@@ -45,34 +45,37 @@ import {onMounted, ref} from "vue";
 
 export default {
   name: "FoodCard",
-  props: ['data'],
+  props: ['food'],
   async setup(props) {
+    const data = ref({});
     const decreaseBtn = ref(false);
     const increaseQ = () => {
 
-      if (document.querySelector('#quantity_' + props.index).value === '') {
-        document.querySelector('#quantity_' + props.index).value = 1;
+      if (document.querySelector('#quantity_' + props.food.id).value === '') {
+        document.querySelector('#quantity_' + props.food.id).value = 1;
         decreaseBtn.value = true;
       } else {
-        document.querySelector('#quantity_' + props.index).value = parseInt(document.querySelector('#quantity_' + props.index).value) + 1;
+        document.querySelector('#quantity_' + props.food.id).value = parseInt(document.querySelector('#quantity_' + props.food.id).value) + 1;
 
       }
     }
     const decreaseQ = () => {
-      if (document.querySelector('#quantity_' + props.index).value > 0) {
-        document.querySelector('#quantity_' + props.index).value = parseInt(document.querySelector('#quantity_' + props.index).value) - 1;
-        if (parseInt(document.querySelector('#quantity_' + props.index).value) === 0) {
-          document.querySelector('#quantity_' + props.index).value = '';
+      if (document.querySelector('#quantity_' + props.food.id).value > 0) {
+        document.querySelector('#quantity_' + props.food.id).value = parseInt(document.querySelector('#quantity_' + props.food.id).value) - 1;
+        if (parseInt(document.querySelector('#quantity_' + props.food.id).value) === 0) {
+          document.querySelector('#quantity_' + props.food.id).value = '';
           decreaseBtn.value = false;
         }
       }
 
     }
-    const data = ref({})
+    onMounted(()=>{
+      data.value = props.food;
+    })
 
 
     return {
-      // data,
+      data,
       decreaseBtn,
       increaseQ,
       decreaseQ
