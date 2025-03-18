@@ -3,9 +3,7 @@
     <div class="card food-card m-0 ">
       <div>
         <img class="img-fluid m-1" :src="'./img/foods/'+ data.image" alt="">
-        <h4 v-if="data.off" style="position: absolute; top: 5px; left:5px"><span class="badge bg-danger">{{
-            data.off
-          }}%</span>
+        <h4 v-if="data.off" style="position: absolute; top: 5px; left:5px"><span class="badge bg-danger">{{data.off}}%</span>
         </h4>
         <div class="px-3 pt-5" id="info-wrapper" style="">
           <div id="info" class="mt-3">
@@ -47,7 +45,7 @@ import {onMounted, ref} from "vue";
 
 export default {
   name: "FoodCard",
-  props: ['index'],
+  props: ['data'],
   async setup(props) {
     const decreaseBtn = ref(false);
     const increaseQ = () => {
@@ -72,16 +70,9 @@ export default {
     }
     const data = ref({})
 
-    await axios.get('https://panel.webagent.ir/api/food/' + props.index)
-    // await axios.get('http://127.0.0.1:8000/api/food/' + props.index)
-        .then((response) => {
-          data.value = response.data;
-        }).catch((error) => {
-          console.log(error);
-        });
 
     return {
-      data,
+      // data,
       decreaseBtn,
       increaseQ,
       decreaseQ

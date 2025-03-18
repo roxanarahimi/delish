@@ -45,24 +45,24 @@
                 <tbody class=" ">
                 <tr>
                   <td>
-                    <p class="fw-bold mb-1">پیتزا ایتالیایی بزرگ</p>
-                    <p class="text-muted  mb-1">198,000</p>
+                    <p class="fw-bold mb-1">پیتزا اسپشیال</p>
+                    <p class="text-muted  mb-1">530,000</p>
                   </td>
                   <td style="width: 80px"><i class="bi bi-plus-circle-fill me-2 text-danger"></i>1<i
                       class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
                 </tr>
                 <tr>
                   <td>
-                    <p class="fw-bold mb-1">برگر ذغالی</p>
-                    <p class="text-muted mb-1">220,000</p>
+                    <p class="fw-bold mb-1">اسموکی برگر</p>
+                    <p class="text-muted mb-1">315,000</p>
                   </td>
                   <td><i class="bi bi-plus-circle-fill me-2 text-danger"></i>2<i
                       class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
                 </tr>
                 <tr>
                   <td>
-                    <p class="fw-bold mb-1">پپسی</p>
-                    <p class="text-muted mb-1">42,000</p>
+                    <p class="fw-bold mb-1">پپسی لیوانی</p>
+                    <p class="text-muted mb-1">65,000</p>
                   </td>
                   <td><i class="bi bi-plus-circle-fill me-2 text-danger"></i>3<i
                       class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
@@ -78,7 +78,7 @@
               <p class="fw-bold mb-1 col-6">0</p>
 
               <p class="fw-bold  col-6">جمع کل</p>
-              <p class="fw-bold  col-6">460,000</p>
+              <p class="fw-bold  col-6">1,040,000</p>
             </div>
             <router-link to="/confirm" class="btn btn-block w-100 btn-danger">ثبت نهایی</router-link>
             <!--                </div>-->
@@ -86,7 +86,7 @@
           </div>
         </div>
 
-        <img style="position: fixed;  width: 350px; bottom: 0px" src="../assets/chef1.png" alt="">
+        <img style="position: fixed;  width: 230px; bottom: 0; left:0" src="../assets/chef1.png" alt="">
 
       </div>
       <!--        factor-->
@@ -125,13 +125,13 @@
         <div id="content" class="col-9 col-md-10 row " style="">
 
           <!--          cards-->
-          <div class="col-12 col-xl-8 px-md-3">
+          <div v-if="foods && foods['pizza']" class="col-12 col-xl-8 px-md-3">
             <div id="pizza" style="scroll-margin-top: 112px" class="row">
               <div v-for="data in foods['pizza']" :key="data.id"  class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
 
                   <template #default>
-                    <food-card :index="data.id"/>
+                    <food-card :data="data"/>
                   </template>
                   <template #fallback>
                       <food-card-skeleton />
@@ -143,7 +143,7 @@
               <div v-for="data in foods['burger']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -154,7 +154,7 @@
               <div v-for="data in foods['sandwich']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -165,7 +165,7 @@
               <div v-for="data in foods['pasta']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -176,7 +176,7 @@
               <div v-for="data in foods['side']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -187,7 +187,7 @@
               <div v-for="data in foods['salad']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -198,7 +198,7 @@
               <div v-for="data in foods['drink']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -209,7 +209,7 @@
               <div v-for="data in foods['other']" :key="data.id"
                    class="col-12 col-md-6 col-lg-4 col-xxl-4 px-3 pe-md-0 ps-md-2 mb-2">
                 <suspense>
-                  <food-card :index="data.id"/>
+                  <food-card :data="data"/>
                   <template #fallback>
                     <food-card-skeleton />
                   </template>
@@ -238,24 +238,24 @@
                     <tbody class=" ">
                     <tr>
                       <td>
-                        <p class="fw-bold mb-1">پیتزا ایتالیایی بزرگ</p>
-                        <p class="text-muted  mb-1">198,000</p>
+                        <p class="fw-bold mb-1">پیتزا اسپشیال</p>
+                        <p class="text-muted  mb-1">530,000</p>
                       </td>
                       <td style="width: 80px"><i class="bi bi-plus-circle-fill me-2 text-danger"></i>1<i
                           class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
                     </tr>
                     <tr>
                       <td>
-                        <p class="fw-bold mb-1">برگر ذغالی</p>
-                        <p class="text-muted mb-1">220,000</p>
+                        <p class="fw-bold mb-1">اسموکی برگر</p>
+                        <p class="text-muted mb-1">315,000</p>
                       </td>
                       <td><i class="bi bi-plus-circle-fill me-2 text-danger"></i>2<i
                           class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
                     </tr>
                     <tr>
                       <td>
-                        <p class="fw-bold mb-1">پپسی</p>
-                        <p class="text-muted mb-1">42,000</p>
+                        <p class="fw-bold mb-1">پپسی لیوانی</p>
+                        <p class="text-muted mb-1">65,000</p>
                       </td>
                       <td><i class="bi bi-plus-circle-fill me-2 text-danger"></i>3<i
                           class="bi bi-dash-circle-fill ms-2 text-danger"></i></td>
@@ -271,7 +271,7 @@
                   <p class="fw-bold mb-1 col-6">0</p>
 
                   <p class="fw-bold  col-6">جمع کل</p>
-                  <p class="fw-bold  col-6">460,000</p>
+                  <p class="fw-bold  col-6">1,040,000</p>
                 </div>
                 <router-link to="/confirm" class="btn btn-block w-100 btn-danger">ثبت نهایی</router-link>
                 <!--                </div>-->
@@ -279,7 +279,7 @@
               </div>
             </div>
 
-            <img style="position: fixed;  width: 350px; bottom: 0px" src="../assets/chef1.png" alt="">
+            <img style="position: fixed;  width: 230px; bottom: 0; left:0" src="../assets/chef1.png" alt="">
 
           </div>
           <!--        factor-->
@@ -305,15 +305,41 @@ export default {
       document.querySelector('main').scrollTo(element);
       document.querySelector('#' + id).scrollIntoView();
     }
-    const foods = ref({});
-    axios.get('https://panel.webagent.ir/api/foods')
-        // await axios.get('http://127.0.0.1:8000/api/foods')
-        .then((response) => {
-          foods.value = response.data;
-        });
-
+    const foods = ref();
+    const info = [
+      {id:1,title:"چیزبرگر",type:"burger",image:"5.jpg",parts:"گوشت چرخ شده، پنیر، کاهو، گوجه، خیارشور",price:475000,off:2},
+      {id:2,title:"ماشروم برگر",type:"burger",image:"7.jpg",parts:"گوشت چرخ شده، پنیر، کاهو، گوجه، خیارشور",price:3250000,off:5},
+      {id:3,title:"اسموکی برگر",type:"burger",image:"8.jpg",parts:"گوشت چرخ شده، پنیر، کاهو، گوجه، خیارشور",price:315000,off:0},
+      {id:4,title:"برگر با سس پنیر",type:"burger",image:"6.jpg",parts:"گوشت چرخ شده، پنیر، کاهو، گوجه، خیارشور",price:310000,off:3},
+      {id:5,title:"پیتزا اسپشیال",type:"pizza",image:"3.jpg",parts:"سوسیس، کالباس، قارچ، فلفل، ذرت، پنیر گودا، پنیر پیتزا، سس مخصوص",price:530000,off:0},
+      {id:6,title:"پیتزا استیک",type:"pizza",image:"2.jpg",parts:"سوسیس، کالباس، قارچ، فلفل، ذرت، پنیر گودا، پنیر پیتزا، سس مخصوص",price:450000,off:0},
+      {id:7,title:"پیتزا قارچ و مرغ",type:"pizza",image:"1.jpg",parts:"سوسیس، کالباس، قارچ، فلفل، ذرت، پنیر گودا، پنیر پیتزا، سس مخصوص",price:345000,off:3},
+      {id:8,title:"پیتزا سبزیجات",type:"pizza",image:"4.jpg",parts:"سوسیس، کالباس، قارچ، فلفل، ذرت، پنیر گودا، پنیر پیتزا، سس مخصوص",price:345000,off:10},
+      {id:9,title:"پپسی لیوانی",type:"drink",image:"delish.png",parts:null,price:65000,off:0},
+      {id:10,title:"نوشابه خانواده",type:"drink",image:"delish.png",parts:null,price:49000,off:0},
+      {id:11,title:"نوشابه قوطی",type:"drink",image:"delish.png",parts:null,price:30000,off:0},
+      {id:12,title:"دلستر",type:"drink",image:"delish.png",parts:null,price:30000,off:0},
+      {id:13,title:"سس پنیر",type:"other",image:"delish.png",parts:null,price:15000,off:0},
+      {id:14,title:"سس قارچ",type:"other",image:"delish.png",parts:null,price:15000,off:0},
+      {id:15,title:"سس کنجد",type:"other",image:"delish.png",parts:null,price:15000,off:0},
+      {id:16,title:"نان یک نفره",type:"other",image:"delish.png",parts:null,price:12000,off:0},
+      {id:18,title:"پاستا چیکن آلفردو",type:"pasta",image:"delish.png",parts:"پنه، سس الفردو، مرغ گریل، قارچ، خامه",price:395000,off:0},
+      {id:19,title:"پاستا بیف آلفردو",type:"pasta",image:"delish.png",parts:"پنه، سس الفردو، مرغ گریل، قارچ، خامه",price:395000,off:0},
+      {id:20,title:"سالاد سزار با  مرغ گریل",type:"salad",image:"delish.png",parts:"کاهو سس سزار مرغ",price:268000,off:0},
+      {id:21,title:"سالاد سزار با مرغ سوخاری",type:"salad",image:"delish.png",parts:"کاهو سس سزار مرغ",price:268000,off:0},
+      {id:22,title:"هات داگ ویژه",type:"sandwich",image:"delish.png",parts:"هات داگ، قارچ، پنیر، کاهو، گوجه، خیارشور",price:320000,off:0},
+      {id:23,title:"هات رویال",type:"sandwich",image:"delish.png",parts:"هات داگ، قارچ، پنیر، کاهو، گوجه، خیارشور",price:325000,off:0},
+      {id:24,title:"ژامبون تنوری",type:"sandwich",image:"delish.png",parts:"هات داگ، قارچ، پنیر، کاهو، گوجه، خیارشور",price:310000,off:0},
+      {id:25,title:"سیب زمینی ساده",type:"side",image:"delish.png",parts:"سیب زمینی سزخ شده ادویه مخصوص",price:195000,off:0},
+      {id:26,title:"سیب زمینی با سس پنیر",type:"side",image:"delish.png",parts:"سیب زمینی سزخ شده ادویه مخصوص",price:230000,off:0},
+      {id:27,title:"سالاد فصل",type:"salad",image:"delish.png",parts:"کاهو سس سزار مرغ",price:145000,off:0}
+        ];
+    onMounted(()=>{
+      foods.value = Object.groupBy(info, ({ type }) => type);
+      console.log(foods.value)
+    })
     return {
-      scrollPage, foods
+      scrollPage, foods, info
     }
   }
 }
